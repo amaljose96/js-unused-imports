@@ -20,14 +20,14 @@ def prepareFileQueue(filePaths,fileQueue):
 def scanFiles(fileQueue,packageImports,fileImports):
     print("Scanning dependencies...")
     scanner.scanDependencies(fileQueue,packageImports,fileImports)
-    if(len(fileImports.keys()) == 0):
+    if(len(list(fileImports.keys())) == 0):
         print("No Files Found")
         exit()
     print("\nProject Scan Complete")
     print("\n=========================================")
 
 def gettingProjectDirectory(fileImports):
-    highestDirectory = filePathUtils.getHighestDirectory(fileImports.keys())
+    highestDirectory = filePathUtils.getHighestDirectory(list(fileImports.keys()))
     print("\nProject Directory : "+highestDirectory+"\n")
     return highestDirectory
 
@@ -47,7 +47,7 @@ def displayAllPackages(packageImports,highestDirectory):
 def displayAllFiles(fileImports,highestDirectory,directoryMap):
     fileStatuses = filesHandler.getFileStatuses(highestDirectory,fileImports)
     directoryMapCopy=filesHandler.getDirectoryTree(fileStatuses,highestDirectory)
-    for key in directoryMapCopy.keys():
+    for key in list(directoryMapCopy.keys()):
         directoryMap[key]=directoryMapCopy[key]
     filesHandler.printFileStatuses(directoryMap)
     return fileStatuses

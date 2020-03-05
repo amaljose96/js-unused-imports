@@ -1,0 +1,16 @@
+README.md
+setup.py
+unused-imports
+js-unused-imports/__init__.py
+js-unused-imports/filePathUtils.py
+js-unused-imports/fileUtils.py
+js-unused-imports/filesHandler.py
+js-unused-imports/packageHandler.py
+js-unused-imports/scanner.py
+js-unused-imports/sequences.py
+js-unused-imports/unusedFiles.py
+js-unused-imports/unusedImports.py
+unused_imports.egg-info/PKG-INFO
+unused_imports.egg-info/SOURCES.txt
+unused_imports.egg-info/dependency_links.txt
+unused_imports.egg-info/top_level.txt

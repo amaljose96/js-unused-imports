@@ -14,7 +14,6 @@ def scanDependencies(fileQueue,packageImports,fileImports):
                 elif("require(" in line):
                     importDirectory = line.split("require(")[1].split(")")[0].replace(
                         "\"", "").replace(" ", "").replace(";", "").replace("'", "").replace("\t", "")
-                    print("Require found "+importDirectory)
                 else:
                     continue
                 if len(importDirectory.split("/")) == 1 or len(importDirectory.split("@")) != 1 or importDirectory.find("lodash") != -1:
@@ -30,13 +29,13 @@ def scanDependencies(fileQueue,packageImports,fileImports):
                         print("\nFile "+fullPath+" missing !!\nFile was imported in " +
                                 currentFile+" as "+importDirectory)
                         continue
-                    if correctPath in fileImports.keys():
+                    if correctPath in list(fileImports.keys()):
                         fileImports[correctPath].append(currentFile)
                     else:
                         fileImports[correctPath] = [currentFile]
                         fileQueue.append(correctPath)
         except:
-            print("Failed to open "+currentFile+str(sys.exc_info()))
+            print("Failed to open "+currentFile)
         fileQueue = fileQueue[1:]
 
 def getFilesList(directory):
@@ -46,5 +45,6 @@ def getFilesList(directory):
         currentFolders = path[1]
         currentFiles = path[2]
         for fileName in currentFiles:
-            filesList.append(pathName+"/"+fileName)
+            if(".js" in fileName or ".jsx" in fileName):
+                filesList.append(pathName+"/"+fileName)
     return filesList

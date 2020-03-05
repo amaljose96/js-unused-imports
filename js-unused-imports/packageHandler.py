@@ -2,7 +2,7 @@ import fileUtils
 import json
 def handleUsed(packageImports):
     print("\nUsed packages:")
-    for package in sorted(packageImports.keys()):
+    for package in sorted(list(packageImports.keys())):
         print("\t"+package)
     fileUtils.writeJsonToFile(packageImports,"packageImports.json")
 
@@ -25,9 +25,9 @@ def getPackageJsonContent(highestDirectory):
 
 def getPackageStatuses(packageJson,packageImports):
     packageStatuses={}
-    for packageDependency in sorted(packageJson["dependencies"].keys()):
+    for packageDependency in sorted(list(packageJson["dependencies"].keys())):
         packageType = ""
-        if(packageDependency in packageImports.keys()):
+        if(packageDependency in list(packageImports.keys())):
             packageStatuses[packageDependency] = True
         else:
             packageStatuses[packageDependency] = False
@@ -35,7 +35,7 @@ def getPackageStatuses(packageJson,packageImports):
 
 def printPackageStatuses(packageStatuses):
     print("\nCurrent package dependecies :")
-    for package in sorted(packageStatuses.keys()):
+    for package in sorted(list(packageStatuses.keys())):
         if(packageStatuses[package]):
             print("\t\33[32mUSED    | "+package+"\033[0m")
         else:
@@ -46,6 +46,6 @@ def printUnusedCount(packageStatuses):
     for packageStatus in packageStatuses.values():
         unusedPackageCount = unusedPackageCount+packageStatus
     print("Unused packages : "+str(unusedPackageCount) +
-        " out of "+str(len(packageStatuses.keys())) + " | "+str((unusedPackageCount*100.00)/len(packageStatuses.keys()))+"%")
+        " out of "+str(len(list(packageStatuses.keys()))) + " | "+str((unusedPackageCount*100.00)/len(list(packageStatuses.keys())))+"%")
     
 

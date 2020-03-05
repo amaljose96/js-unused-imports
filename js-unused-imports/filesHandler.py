@@ -1,7 +1,7 @@
 import fileUtils
 import scanner
 def getUsedDirectoryTree(fileImports,highestDirectory):
-    usedFilesList=fileImports.keys()
+    usedFilesList=list(fileImports.keys())
     usedDirectoryMap = {}
     for filePath in usedFilesList:
         relativeFilePath = filePath.split(highestDirectory)[1]
@@ -26,7 +26,7 @@ def printTree(node, level):
         return
     if(type(node) is bool):
         return
-    subTreeNames = sorted(node.keys())
+    subTreeNames = sorted(list(node.keys()))
     for subFolder in subTreeNames:
         printArray = []
         for i in range(0, level+1):
@@ -54,7 +54,7 @@ def getFileStatuses(highestDirectory,fileImports):
     filesList = scanner.getFilesList(highestDirectory)
     for fileName in filesList:
         fileType = ""
-        if(fileName in fileImports.keys()):
+        if(fileName in list(fileImports.keys())):
             fileStatuses.append({"fileName": fileName, "used": True})
         else:
             fileStatuses.append({"fileName": fileName, "used": False})
