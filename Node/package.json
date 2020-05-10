@@ -1,0 +1,17 @@
+{
+  "name": "unused-imports",
+  "version": "1.0.0",
+  "description": "Finds unused files and functions in your js project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node babelify.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/register": "^7.9.0"
+  }
+}

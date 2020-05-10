@@ -1,0 +1,8 @@
+{
+  "projects": [
+    {
+      "name": "Unified Dashboard",
+      "files": ["../../../UnifiedDashboard/apps/ui/src/UnifiedDashboard/index.js"]
+    }
+  ]
+}
