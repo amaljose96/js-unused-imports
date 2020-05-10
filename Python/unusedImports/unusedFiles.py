@@ -3,7 +3,7 @@ import sequences
 
 
 filePaths = [
-                "../../Hackathon-2019/shopping-assistant/src/index.js",
+                "../../../UnifiedDashboard/apps/ui/src/index.js",
                 ]
 fileQueue = []
 packageImports = {}

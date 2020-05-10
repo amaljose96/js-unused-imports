@@ -1,9 +1,9 @@
 import setuptools
 
 setuptools.setup(
-     name='unused-imports',  
+     name='unusedImports',  
      version='0.1',
-     scripts=['unused-imports'] ,
+     scripts=['index.py'] ,
      author="Amal Jose",
      author_email="amaljose96@gmail.com",
      description="To figure out which JS/JSX files are not used by the node project",
